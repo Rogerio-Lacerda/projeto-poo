@@ -9,7 +9,7 @@ class Program:
         
 if __name__ == "__main__":
 
-    print("**Configurações da Tabela***")
+    print("*** Configurações da Tabela ***")
     caminho_formatar = "import\\projetoPOO.xlsx"
     caminho_leitura = "import\\tabelaPooFormatadaIndice.xlsx"
     configTabela = Tabela(caminho_formatar, caminho_leitura)
@@ -17,21 +17,23 @@ if __name__ == "__main__":
     dataFrame = configTabela.read()
 
     grafico = Graficos(dataFrame)
-    print("***Retorno dos Gráficos***")
+    print('')
+    print("*** Retorno dos Gráficos ***")
     grafico.distribuicao_normal()
     grafico.getBoxplot()
     grafico.indiceTempo()
 
-    analise =  AnaliseInicial(dataFrame)
-    analise.tipoColunas()
-    print("***Retorno das Análises***")
-    print(f"Qntd de Elementos: {analise.qtdElementos()}")
-    print(f"Colunas e Tipos: {analise.tipoColunas()}")
-
     calculos =  Calculos(dataFrame)
-    print("***Retorno dos Cálculos***")
+    print('')
+    print("*** Retorno dos Cálculos ***")
     print(f"Média: {calculos.media()}")
     print(f"Mediana: {calculos.mediana()}")
     print(f"Desvio Padrao: {calculos.desvioPadrao()}")
     print(f"Coeficiente da Variação: {calculos.get_variant_coefficient()}")
     print(f"Valores Quartis: {calculos.quartis()}")
+
+    analise =  AnaliseInicial(dataFrame)
+    print('')
+    print("*** Retorno das Análises ***")
+    print(f"Qntd de Elementos: {analise.qtdElementos()}")
+    print(f"Colunas e Tipos: {analise.tipoColunas()}")
